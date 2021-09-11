@@ -1,0 +1,23 @@
+$bg: #2e3440;
+$fg: #e5e9f0;
+$hover: #81a1c1;
+$highlight: #434c5e;
+
+@mixin mobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin border {
+  border: 2px solid $highlight;
+  border-radius: 0.25rem;
+}
+
+@mixin hover {
+  cursor: pointer;
+  transition: color 250ms ease-in-out;
+  &:hover {
+    color: $hover;
+  }
+}

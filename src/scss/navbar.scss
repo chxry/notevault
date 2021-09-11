@@ -1,0 +1,72 @@
+@import "./_variables.scss";
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid $highlight;
+
+  h1 {
+    cursor: pointer;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li {
+      margin-right: 1rem;
+      color: $fg;
+      @include hover;
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 250ms ease-in-out;
+    background-color: $fg;
+  }
+}
+
+@include mobile {
+  nav ul {
+    position: fixed;
+    flex-direction: column;
+    width: 100%;
+    top: 4rem;
+    left: 0;
+    background: $bg;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+
+    & li {
+      padding: 0.5rem;
+      margin-right: 0;
+    }
+    &.active {
+      opacity: 100;
+      border-bottom: 2px solid $highlight;
+    }
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    &.active span:nth-child(2) {
+      opacity: 0;
+    }
+    &.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    &.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
