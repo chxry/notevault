@@ -9,8 +9,9 @@ $highlight: #434c5e;
   }
 }
 
+$border: 2px solid $highlight;
 @mixin border {
-  border: 2px solid $highlight;
+  border: $border;
   border-radius: 0.25rem;
 }
 

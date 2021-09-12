@@ -13,9 +13,11 @@ router.get(
   })
 );
 
-router.get("/user", (req, res) => {
-  res.status(req.isAuthenticated() ? 200 : 401).end();
-});
+router.get("/user", (req, res) =>
+  req.isAuthenticated()
+    ? res.status(200).json({ username: (req.user as any).username })
+    : res.status(401).end()
+);
 
 router.get("/logout", (req, res) => {
   req.logout();

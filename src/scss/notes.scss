@@ -1,0 +1,11 @@
+@import "./_variables.scss";
+
+.notes {
+  border-left: $border;
+  border-right: $border;
+  height: 100%;
+  li {
+    padding: 0.5rem;
+    border-bottom: $border;
+  }
+}

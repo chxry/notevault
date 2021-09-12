@@ -1,0 +1,21 @@
+@import "./_variables.scss";
+
+header {
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 2px solid $highlight;
+}
+
+main {
+  flex: 1;
+  &.center {
+    display: flex;
+    justify-content: center;
+  }
+  & .content {
+    width: 54rem;
+  }
+  & .pad {
+    padding: 1rem;
+  }
+}

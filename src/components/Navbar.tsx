@@ -16,15 +16,18 @@ const Navbar = () => {
 
   return (
     <nav>
-      <NavItem to="/">
+      <NavItem to="/notes">
         <h1>NoteVault</h1>
       </NavItem>
       <ul className={menuOpen ? "active" : ""}>
-        <NavItem to="/about">About</NavItem>
         {user.authenticated === null ? (
           <p>Loading</p>
         ) : user.authenticated ? (
-          <li onClick={() => redirect("/api/auth/logout")}>Logout</li>
+          <>
+            <NavItem to="/">Home</NavItem>
+            <NavItem to="/account">Account</NavItem>
+            <li onClick={() => redirect("/api/auth/logout")}>Logout</li>
+          </>
         ) : (
           <NavItem to="/login">Login</NavItem>
         )}
