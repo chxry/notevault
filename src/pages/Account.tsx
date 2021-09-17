@@ -7,7 +7,7 @@ const Account = () => {
   const [user] = useContext(UserContext);
 
   return (
-    <Layout header="Account" center pad>
+    <Layout header="Account" center>
       <h2>Account Info:</h2>
       <b>Username: </b>
       {user.username}

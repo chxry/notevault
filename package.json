@@ -11,6 +11,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -33,6 +34,7 @@
     "nodemon": "^2.0.12",
     "passport": "^0.4.1",
     "passport-github2": "^0.1.12",
+    "passport-twitter": "^1.0.4",
     "prettier": "^2.2.1",
     "sass": "^1.35.1",
     "snowpack": "^3.3.7",

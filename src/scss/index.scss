@@ -3,6 +3,7 @@
 * {
   margin: 0;
   font-family: "Inter", sans-serif;
+  white-space: pre;
 }
 
 #root {
@@ -17,10 +18,13 @@
   color: $fg;
 }
 
+svg {
+  margin: 0 0.5rem 0 0 !important;
+}
 button {
   background: none;
-  outline: none;
   border: none;
+  color: $fg;
 }
 ul {
   padding: 0;

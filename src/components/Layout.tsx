@@ -5,12 +5,10 @@ import "../scss/layout.scss";
 const Layout = ({
   header,
   center,
-  pad,
   children,
 }: {
   header: string;
   center?: boolean;
-  pad?: boolean;
   children: ReactNode;
 }) => {
   return (
@@ -19,7 +17,7 @@ const Layout = ({
         <h2>{header}</h2>
       </header>
       <main className={center ? "center" : ""}>
-        <div className={pad ? "pad content" : "content"}>{children}</div>
+        <div className="content">{children}</div>
       </main>
     </>
   );

@@ -9,5 +9,8 @@ interface Config {
   githubCallback: string;
 }
 
-export const loadConfig = (): Config =>
-  JSON.parse(fs.readFileSync(`${__dirname}/config.json`, "utf8"));
+const config: Config = JSON.parse(
+  fs.readFileSync(`${__dirname}/config.json`, "utf8")
+);
+
+export default config;

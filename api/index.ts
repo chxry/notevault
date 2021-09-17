@@ -2,22 +2,18 @@ import express = require("express");
 import session = require("express-session");
 import passport = require("passport");
 import github = require("passport-github2");
-import mongodb = require("mongodb");
 
-import util = require("./util");
+const config = require("./config");
+const { mongoConnect, users } = require("./mongo");
 
 const app = express();
-const config = util.loadConfig();
-const mongo = new mongodb.MongoClient(config.mongodb);
-mongo.connect();
-let users = mongo.db("notevault").collection("users");
-console.log(`Connected to ${config.mongodb}`);
+mongoConnect();
 
 passport.serializeUser((user: any, done) => {
   done(null, user.id);
 });
 passport.deserializeUser((id, done) => {
-  users.findOne({ id: id }).then((doc) => done(null, doc));
+  users.findOne({ id }).then((doc) => done(null, doc));
 });
 app.use(
   session({
@@ -47,7 +43,8 @@ passport.use(
   )
 );
 
-app.use("/api/auth/", require("./auth"));
+app.use("/api/auth/", require("./routes/auth"));
+app.use("/api/notes/", require("./routes/notes"));
 
 app.listen(config.port, () => {
   console.log(`Listening on port ${config.port}`);

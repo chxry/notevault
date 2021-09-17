@@ -8,7 +8,7 @@ router.get("/github", passport.authenticate("github"));
 router.get(
   "/github/callback",
   passport.authenticate("github", {
-    successRedirect: "/",
+    successRedirect: "/notes",
     failureRedirect: "/login",
   })
 );

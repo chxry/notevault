@@ -2,6 +2,8 @@ $bg: #2e3440;
 $fg: #e5e9f0;
 $hover: #81a1c1;
 $highlight: #434c5e;
+$pageBg: #eceff4;
+$pageColor: #0e1013;
 
 @mixin mobile {
   @media (max-width: 640px) {

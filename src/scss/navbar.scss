@@ -8,7 +8,7 @@ nav {
   border-bottom: 2px solid $highlight;
 
   h1 {
-    cursor: pointer;
+    @include hover;
   }
   ul {
     display: flex;
@@ -16,7 +16,6 @@ nav {
     align-items: center;
     li {
       margin-right: 1rem;
-      color: $fg;
       @include hover;
     }
   }

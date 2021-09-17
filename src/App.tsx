@@ -3,13 +3,13 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { UserContext } from "./context";
 import { Navbar, ProtectedRoute } from "./components";
-import { Home, Login, Notes, Account } from "./pages";
+import { Home, Login, Notes, Note, Account } from "./pages";
 
 const App = () => {
   const [user, setUser] = useState({ authenticated: null });
 
   useEffect(() => {
-    fetch("api/auth/user", {
+    fetch("/api/auth/user", {
       credentials: "include",
     })
       .then((res) => {
@@ -30,6 +30,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
+          <ProtectedRoute path="/notes/:user/:note/:page?" component={Note} />
           <ProtectedRoute path="/notes" component={Notes} />
           <ProtectedRoute path="/account" component={Account} />
           <Route path="*" component={() => <Redirect to="/" />} />
