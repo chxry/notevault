@@ -11,6 +11,9 @@ const Account = () => {
       <h2>Account Info:</h2>
       <b>Username: </b>
       {user.username}
+      <br />
+      <b>Provider: </b>
+      {user.provider}
     </Layout>
   );
 };

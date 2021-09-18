@@ -1,6 +1,8 @@
-const router = require("express").Router();
+import express from "express";
 
-const { users, notes } = require("../mongo");
+import { users, notes } from "../mongo";
+
+const router = express.Router();
 
 router.get("/", (req, res) => {
   if (!req.isAuthenticated()) {
@@ -29,12 +31,19 @@ router.get("/:user/:note", (req, res) => {
   }
 
   users.findOne({ username: req.params.user }).then((user) => {
+    if (user === null) {
+      res.status(404).end();
+      return;
+    }
     notes.findOne({ owner: user.id, title: req.params.note }).then((note) => {
-      //check if has access or if exists
+      if (note === null) {
+        res.status(404).end();
+        return;
+      }
+      //check if has access
       res.json({ pages: note.pages });
     });
   });
 });
-
 
 module.exports = router;

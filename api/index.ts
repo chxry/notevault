@@ -1,10 +1,11 @@
-import express = require("express");
-import session = require("express-session");
-import passport = require("passport");
-import github = require("passport-github2");
+import express from "express";
+import session from "express-session";
+import passport from "passport";
+import github from "passport-github2";
+import twitter from "passport-twitter";
 
-const config = require("./config");
-const { mongoConnect, users } = require("./mongo");
+import config from "./config";
+import { mongoConnect, users } from "./mongo";
 
 const app = express();
 mongoConnect();
@@ -33,15 +34,37 @@ passport.use(
       callbackURL: config.githubCallback,
     },
     (accessToken, refreshToken, user, done) => {
-      users.count({ id: user.id }, { limit: 1 }).then((exists) => {
-        if (!exists) {
-          users.insertOne({ id: user.id, username: user.username, notes: [] });
-        }
-      });
+      onLogin(user);
       done(null, user);
     }
   )
 );
+
+passport.use(
+  new twitter(
+    {
+      consumerKey: config.twitterKey,
+      consumerSecret: config.twitterSecret,
+      callbackURL: config.twitterCallback,
+    },
+    (token, tokenSecret, user, done) => {
+      onLogin(user);
+      done(null, user);
+    }
+  )
+);
+
+const onLogin = (user) => {
+  users.count({ id: user.id }, { limit: 1 }).then((exists) => {
+    if (!exists) {
+      users.insertOne({
+        id: user.id,
+        username: user.username,
+        provider: user.provider,
+      });
+    }
+  });
+};
 
 app.use("/api/auth/", require("./routes/auth"));
 app.use("/api/notes/", require("./routes/notes"));

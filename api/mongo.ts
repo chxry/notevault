@@ -1,8 +1,8 @@
-import mongodb = require("mongodb");
+import { MongoClient } from "mongodb";
 
-const config = require("./config");
+import config from "./config";
 
-const mongo = new mongodb.MongoClient(config.mongodb);
+const mongo = new MongoClient(config.mongodb);
 
 export const mongoConnect = () => {
   mongo.connect();

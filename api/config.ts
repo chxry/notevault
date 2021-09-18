@@ -1,4 +1,4 @@
-import fs = require("fs");
+import fs from "fs";
 
 interface Config {
   port: number;
@@ -7,6 +7,9 @@ interface Config {
   mongodb: string;
   githubSecret: string;
   githubCallback: string;
+  twitterKey: string;
+  twitterSecret: string;
+  twitterCallback: string;
 }
 
 const config: Config = JSON.parse(
