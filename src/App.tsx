@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { UserContext } from "./context";
-import { Navbar, ProtectedRoute } from "./components";
+import { Navbar, ProtectedRoute,Cookies } from "./components";
 import { Home, Login, Notes, Note, Settings } from "./pages";
 
 const App = () => {
@@ -21,10 +21,10 @@ const App = () => {
       })
       .catch(() => setUser({ authenticated: false }));
   }, []);
-  console.log(user);
 
   return (
     <UserContext.Provider value={[user, setUser]}>
+      <Cookies />
       <BrowserRouter>
         <Navbar />
         <Switch>

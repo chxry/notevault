@@ -1,0 +1,20 @@
+@import "./_variables.scss";
+
+.cookies {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  opacity: 0;
+  background: $bg;
+  @include border;
+  transition: all 250ms ease-in-out;
+
+  &.active {
+    opacity: 100;
+    cursor: pointer;
+  }
+  &:hover {
+    background: $highlight;
+  }
+}

@@ -42,7 +42,7 @@ const Note = () => {
             key={i}
             onClick={() => {
               history.push(`/notes/${user}/${note}/${name}`);
-              window.location.reload();
+              window.location.reload(); //dont do this
             }}
           >
             {name}
