@@ -23,14 +23,9 @@ router.get(
   })
 );
 
-router.get("/user", (req, res) => {
-  if (req.isAuthenticated()) {
-    let user: any = req.user;
-    res.json({ username: user.username, provider: user.provider });
-  } else {
-    res.status(401).end();
-  }
-});
+router.get("/user", (req, res) => 
+  req.isAuthenticated() ? res.json(req.user) : res.status(401).end()
+);
 
 router.get("/logout", (req, res) => {
   req.logout();

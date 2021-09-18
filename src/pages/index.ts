@@ -2,6 +2,6 @@ import Home from "./Home";
 import Login from "./Login";
 import Notes from "./Notes";
 import Note from "./Note";
-import Account from "./Account";
+import Settings from "./Settings";
 
-export { Home, Login, Notes, Note, Account };
+export { Home, Login, Notes, Note, Settings };

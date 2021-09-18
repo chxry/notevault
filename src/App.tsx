@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { UserContext } from "./context";
 import { Navbar, ProtectedRoute } from "./components";
-import { Home, Login, Notes, Note, Account } from "./pages";
+import { Home, Login, Notes, Note, Settings } from "./pages";
 
 const App = () => {
   const [user, setUser] = useState({ authenticated: null });
@@ -32,7 +32,7 @@ const App = () => {
           <Route path="/login" exact component={Login} />
           <ProtectedRoute path="/notes/:user/:note/:page?" component={Note} />
           <ProtectedRoute path="/notes" component={Notes} />
-          <ProtectedRoute path="/account" component={Account} />
+          <ProtectedRoute path="/settings" component={Settings} />
           <Route path="*" component={() => <Redirect to="/" />} />
         </Switch>
       </BrowserRouter>

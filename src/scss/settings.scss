@@ -1,0 +1,29 @@
+@import "./_variables.scss";
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  @include border;
+
+  h3 {
+    width: 100%;
+  }
+  .icons {
+    svg,img {
+      margin: 0.5rem !important;
+    }
+    svg {
+      font-size: 5rem;
+      vertical-align: top;
+    }
+    img {
+      width: 5rem;
+      border-radius: 50%;
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+}

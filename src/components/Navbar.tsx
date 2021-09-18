@@ -25,7 +25,7 @@ const Navbar = () => {
         ) : user.authenticated ? (
           <>
             <NavItem to="/">Home</NavItem>
-            <NavItem to="/account">Account</NavItem>
+            <NavItem to="/settings">Settings</NavItem>
             <li onClick={() => redirect("/api/auth/logout")}>Logout</li>
           </>
         ) : (

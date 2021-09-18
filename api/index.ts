@@ -61,6 +61,8 @@ const onLogin = (user) => {
         id: user.id,
         username: user.username,
         provider: user.provider,
+        image: user.photos[0].value,
+        created: new Date
       });
     }
   });
