@@ -4,26 +4,56 @@
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
+  margin-bottom: 1rem;
   @include border;
 
-  h3 {
+  h3, span {
+    margin-bottom: 0.25rem;
     width: 100%;
   }
-  .icons {
-    svg,img {
-      margin: 0.5rem !important;
+
+  &.account {
+    .icons {
+      svg,img {
+        margin: 0.5rem !important;
+      }
+      svg {
+        font-size: 5rem;
+        vertical-align: top;
+      }
+      img {
+        width: 5rem;
+        border-radius: 50%;
+      }
     }
-    svg {
-      font-size: 5rem;
-      vertical-align: top;
-    }
-    img {
-      width: 5rem;
-      border-radius: 50%;
+    .info {
+      display: flex;
+      flex-direction: column;
     }
   }
-  .info {
-    display: flex;
-    flex-direction: column;
+
+  &.appearance {
+    .theme {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      margin: 0.25rem;
+      font-size: 1.25rem;
+      @include border;
+      cursor: pointer;
+      transition: background 250ms ease-in-out;
+      
+      &:hover {
+        background: $highlight;
+      }
+      @include mobile {
+        width: 100%;
+      }
+
+      &.active {
+        border-color: $hover;
+      }
+    }
   }
 }

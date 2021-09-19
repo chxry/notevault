@@ -11,8 +11,8 @@
   transition: all 250ms ease-in-out;
 
   &.active {
-    opacity: 100;
     cursor: pointer;
+    opacity: 100;
   }
   &:hover {
     background: $highlight;

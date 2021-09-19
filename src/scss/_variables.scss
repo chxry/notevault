@@ -1,9 +1,9 @@
-$bg: #2e3440;
-$fg: #e5e9f0;
-$hover: #81a1c1;
-$highlight: #434c5e;
-$editorBg: #eceff4;
-$editorColor: #0e1013;
+$bg: var(--bg);
+$fg: var(--fg);
+$hover: var(--hover);
+$highlight: var(--highlight);
+$editorBg: var(--editorBg);
+$editorColor: var(--editorColor);
 
 @mixin mobile {
   @media (max-width: 640px) {

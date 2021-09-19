@@ -1,0 +1,26 @@
+.light {
+  --bg: #fafafa;
+  --fg: #000;
+  --hover: #81a1c1;
+  --highlight: #e0e0e0;
+  --editorBg: #fafafa;
+  --editorColor: #000;
+}
+
+.dark {
+  --bg: #151515;
+  --fg: #fafafa;
+  --hover: #81a1c1;
+  --highlight: #252525;
+  --editorBg: #fafafa;
+  --editorColor: #000;
+}
+
+.nord {
+  --bg: #2e3440;
+  --fg: #e5e9f0;
+  --hover: #81a1c1;
+  --highlight: #434c5e;
+  --editorBg: #eceff4;
+  --editorColor: #0e1013;
+}
